@@ -1,7 +1,10 @@
 import './App.css'
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Employees from './components/Employees'
+import GroupedTeams from './components/GroupedTeams'
 import Header from './components/Header'
+import Nav from './components/Nav'
 
 function App() {
 
@@ -119,18 +122,34 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <Router>
+      
+      <Nav/>
       <Header
       selectedTeam={selectedTeam}
       teamMemberCount={teamMemberCount}
       />
-      <Employees 
-      employees={employees}
-      selectedTeam={selectedTeam}
-      handleEmployeeClick={handleEmployeeClick}
-      handleTeamChange={handleTeamChange}
-      />
-    </div>
+
+      <Routes>
+
+        <Route 
+        path='/' 
+        element={
+          <Employees 
+          employees={employees}
+          selectedTeam={selectedTeam}
+          handleEmployeeClick={handleEmployeeClick}
+          handleTeamChange={handleTeamChange}
+          />
+        }>
+        </Route>
+
+        <Route path='/GroupedTeams' element={<GroupedTeams/>}>
+        </Route>
+
+      </Routes>
+
+    </Router>
   )
 }
 
