@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Employees from './components/Employees'
 import GroupedTeams from './components/GroupedTeams'
-import Header from './components/Header'
 import Nav from './components/Nav'
 import NotFound from './components/NotFound'
 
@@ -126,10 +125,6 @@ function App() {
     <Router>
 
       <Nav/>
-      <Header
-      selectedTeam={selectedTeam}
-      teamMemberCount={teamMemberCount}
-      />
 
       <Routes>
 
@@ -141,13 +136,20 @@ function App() {
           selectedTeam={selectedTeam}
           handleEmployeeClick={handleEmployeeClick}
           handleTeamChange={handleTeamChange}
+          teamMemberCount={teamMemberCount}
           />
         }>
         </Route>
 
         <Route 
         path='/GroupedTeams' 
-        element={<GroupedTeams/>}>
+        element={
+          <GroupedTeams
+          employees={employees}
+          selectedTeam={selectedTeam}
+          setTeam={setTeam}
+          />
+        }>
         </Route>
 
         <Route path='*'
