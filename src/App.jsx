@@ -1,13 +1,13 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Employees from './components/Employees'
 import Header from './components/Header'
 
 function App() {
 
-  const [selectedTeam, setTeam] = useState('Team A')
+  const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || 'Team A')
 
-  const [employees, setEmployees] = useState([
+  const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList')) || [
       {
           id: 1,
           fullName: "Bob Jones",
@@ -95,6 +95,14 @@ function App() {
   ])
 
   let teamMemberCount = (employees.filter((emp) => emp.teamName === selectedTeam)).length
+
+  useEffect(() => {
+    localStorage.setItem('employeeList', JSON.stringify(employees))
+  }, [employees])
+
+  useEffect(() => {
+    localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam))
+  }, [selectedTeam])
 
   function handleTeamChange(event) {
       setTeam(event.target.value)
