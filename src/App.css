@@ -3,8 +3,27 @@
     box-sizing: border-box;
 }
 
+.list {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-link:visited, .nav-link {
+    text-decoration: none;
+    color: gray;
+}
+
 .header {
     text-align: center;
+}
+
+.header > h1 {
+    margin-bottom: 0;
+}
+
+.header > h3 {
+    margin: 10px auto 25px
 }
 
 .container {
@@ -22,11 +41,13 @@
 }
 
 select {
-    padding: 6px 100px 6px 6px;
+    padding: 6px 6px 6px 6px;
     background: white;
     border: 1px solid gray;
     border-radius: 5px;
     font-size: 1.4rem;
+    width: 500px;
+    margin-bottom: 12px;
 }
 
 .notMember {
@@ -52,10 +73,29 @@ select {
     padding: 5px 10px;
 }
 
-h1 {
-    margin-bottom: 0;
+.card-info > h4, .card-info > p {
+    margin: 8px auto;
 }
 
-h3 {
-    margin: 10px auto 25px
+.teams-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.team-card {
+    border: 2px solid #f1b1b1;
+    border-radius: 8px;
+    box-shadow: -5px 5px 5px #f1b1b1;
+    width: 200px;
+    text-align: center;
+}
+
+.member-info > h4 {
+    margin-bottom: 0px;
+}
+
+.member-info > p {
+    margin-top: 6px;
 }

@@ -8,38 +8,38 @@ const GroupedTeams = ({employees, selectedTeam, setTeam}) => {
         let teams = []
 
         let teamAMembers = employees.filter((emp) => emp.teamName === 'Team A')
-        let teamA = { team: 'Team A', members: teamAMembers, collapsed: (selectedTeam === 'Team A' ? false : true) }
+        let teamA = { team: 'Team A', members: teamAMembers }
         teams.push(teamA)
 
         let teamBMembers = employees.filter((emp) => emp.teamName === 'Team B')
-        let teamB = { team: 'Team B', members: teamBMembers, collapsed: (selectedTeam === 'Team B' ? false : true) }
+        let teamB = { team: 'Team B', members: teamBMembers }
         teams.push(teamB)
 
         let teamCMembers = employees.filter((emp) => emp.teamName === 'Team C')
-        let teamC = { team: 'Team C', members: teamCMembers, collapsed: (selectedTeam === 'Team C' ? false : true) }
+        let teamC = { team: 'Team C', members: teamCMembers }
         teams.push(teamC)
 
         let teamDMembers = employees.filter((emp) => emp.teamName === 'Team D')
-        let teamD = { team: 'Team D', members: teamDMembers, collapsed: (selectedTeam === 'Team D' ? false : true) }
+        let teamD = { team: 'Team D', members: teamDMembers }
         teams.push(teamD)
 
         return teams
     }
 
     return (
-        <main>
+        <main className='teams-container'>
             {
                 groupedMembers.map((item) => {
                     return (
-                        <div>
+                        <div className='team-card'>
                             <h3>{item.team}</h3>
-                            <div className={item.collapsed === true ? 'collapsed' : ''}>
+                            <div>
                                 {
                                     item.members.map((member) => {
                                         return (
-                                            <div>
+                                            <div className='member-info'>
                                                 <h4>{member.fullName}</h4>
-                                                <p>Designation: {member.designation}</p>
+                                                <p>{member.designation}</p>
                                             </div>
                                         )
                                     })

@@ -23,7 +23,7 @@ const Employees = ({employees, selectedTeam, handleEmployeeClick, handleTeamChan
                     <div key={emp.id} className={(emp.teamName === selectedTeam ? 'member' : 'notMember')} id={emp.id} onClick={handleEmployeeClick}>
                         {(emp.gender === 'male') ? <img src={maleProfile}/> : <img src={femaleProfile}/>}
                         <div className='card-info'>
-                            <h5>Full Name: {emp.fullName}</h5>
+                            <h4>{emp.fullName}</h4>
                             <p>Designation: {emp.designation}</p>
                         </div>
                     </div>
