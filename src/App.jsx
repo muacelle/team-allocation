@@ -5,6 +5,7 @@ import Employees from './components/Employees'
 import GroupedTeams from './components/GroupedTeams'
 import Header from './components/Header'
 import Nav from './components/Nav'
+import NotFound from './components/NotFound'
 
 function App() {
 
@@ -123,7 +124,7 @@ function App() {
 
   return (
     <Router>
-      
+
       <Nav/>
       <Header
       selectedTeam={selectedTeam}
@@ -144,7 +145,13 @@ function App() {
         }>
         </Route>
 
-        <Route path='/GroupedTeams' element={<GroupedTeams/>}>
+        <Route 
+        path='/GroupedTeams' 
+        element={<GroupedTeams/>}>
+        </Route>
+
+        <Route path='*'
+        element={<NotFound/>}>
         </Route>
 
       </Routes>
